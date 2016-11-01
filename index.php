@@ -1,6 +1,6 @@
 <?php
 require_once 'includes.php';
-require_once 'config.php';
+require_once 'verifica_auth.php';
 require_once 'Connection.php';
 require_once 'EntidadeInterface.php';
 require_once 'Aluno.php';
@@ -8,8 +8,11 @@ require_once 'Usuario.php';
 require_once 'AlunoModel.php';
 require_once 'UsuarioModel.php';
 
+session_start();
+
 $aluno = new Aluno();
 $alunoModel = new AlunoModel($conexao, $aluno);
+   
 showForm($alunoModel);
 
 function showForm($alunoModel) {
@@ -20,7 +23,7 @@ function showForm($alunoModel) {
             <input type="hidden" name="id_aluno" id="id_aluno" value="">
         </form>
         
-        <form action="index.php" method="POST">
+        <form action="pesquisa.php" method="POST">
             <table class="table">
                 <thead>
                     <tr>

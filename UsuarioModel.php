@@ -19,6 +19,17 @@ class UsuarioModel {
 
         return $stmt->fetch(\PDO::FETCH_ASSOC);
     }
+    
+    public function findNomePassword($nome, $password) {
+        
+        $query = "SELECT * FROM {$this->entity->getTable()} WHERE nome=:nome AND password=:password";
+        $stmt  = $this->db->prepare($query);
+        $stmt->bindValue(":nome",       $nome);
+        $stmt->bindValue(":password",   $password);
+        $stmt->execute();
+
+        return $stmt->fetch(\PDO::FETCH_ASSOC);
+    }    
 
     public function listar($ordem = null) {
         

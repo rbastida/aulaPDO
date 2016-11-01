@@ -1,5 +1,6 @@
 <?php
 require_once 'includes.php';
+require_once 'verifica_auth.php';
 require_once 'Connection.php';
 require_once 'EntidadeInterface.php';
 require_once 'Aluno.php';

@@ -19,6 +19,16 @@ class AlunoModel {
 
         return $stmt->fetch(\PDO::FETCH_ASSOC);
     }
+    
+    public function pesquisa($pesquisa) {
+        
+        $query = "SELECT * FROM {$this->entity->getTable()} WHERE nome LIKE :pesquisa";
+        $stmt  = $this->db->prepare($query);
+        $stmt->bindValue(":pesquisa", $pesquisa);
+        $stmt->execute();
+
+        return $stmt->fetch(\PDO::FETCH_ASSOC);
+    }
 
     public function listar($ordem = null) {
         
