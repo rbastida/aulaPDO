@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 require_once 'includes.php';
 require_once 'Connection.php';
 require_once 'EntidadeInterface.php';
@@ -46,13 +48,13 @@ function processForm($conexao) {
 //        print_r($rs);
 //        exit();
         
-        if ($rs >= 0) {
+        if ($rs > 0) {
 
             // session_start();
             
             // echo 'entrou Session<br>'; 
-            ob_start();
-            session_start();
+//            ob_start();
+//            session_start();
             
             $_SESSION['logado']      = true;
             $_SESSION['nome']        = $rs['nome'];
@@ -68,8 +70,8 @@ function processForm($conexao) {
             header('Location: index.php');
 
         } else {
-            echo 'teste';
-            exit();
+//            echo 'teste';
+//            exit();
             
             $gsErrMsg       = 'Usuário não encontrado!';
             $gbErrLogin     = true;
@@ -170,43 +172,43 @@ function    showForm() {
 
 $(document).ready(function() {
     
-    $('#loginForm').bootstrapValidator({
-        
-        // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
-        feedbackIcons: {
-            valid: 'glyphicon glyphicon-ok',
-            invalid: 'glyphicon glyphicon-remove',
-            validating: 'glyphicon glyphicon-refresh'
-        },
-        fields: {
-
-            inputEmail: {
-                validators: {
-                    notEmpty: {
-                        message: 'O e-mail é obrigatório e não pode estar vazio!'
-                    },                    
-                    regexp: {
-                        regexp: /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/,
-                        message: 'Por favor entre com um e-mail válido!'
-                    }
-                }
-            },  
-          
-            inputPassword: {
-                validators: {
-                    notEmpty: {
-                        message: 'A senha é obrigatória e não pode ser vazia!'
-                    },
-                    stringLength: {
-                        min: 8,
-                        message: 'A senha precisa ter no mínimo 8 caracteres!'
-                    }
-                }
-            },            
-           
-
-        }
-    });
+//    $('#loginForm').bootstrapValidator({
+//        
+//        // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
+//        feedbackIcons: {
+//            valid: 'glyphicon glyphicon-ok',
+//            invalid: 'glyphicon glyphicon-remove',
+//            validating: 'glyphicon glyphicon-refresh'
+//        },
+//        fields: {
+//
+//            inputEmail: {
+//                validators: {
+//                    notEmpty: {
+//                        message: 'O e-mail é obrigatório e não pode estar vazio!'
+//                    },                    
+//                    regexp: {
+//                        regexp: /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/,
+//                        message: 'Por favor entre com um e-mail válido!'
+//                    }
+//                }
+//            },  
+//          
+//            inputPassword: {
+//                validators: {
+//                    notEmpty: {
+//                        message: 'A senha é obrigatória e não pode ser vazia!'
+//                    },
+//                    stringLength: {
+//                        min: 8,
+//                        message: 'A senha precisa ter no mínimo 8 caracteres!'
+//                    }
+//                }
+//            },            
+//           
+//
+//        }
+//    });
 });
 </script>    
 

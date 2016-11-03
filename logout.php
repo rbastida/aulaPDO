@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 require_once 'includes.php';
 require_once 'Connection.php';
 require_once 'EntidadeInterface.php';

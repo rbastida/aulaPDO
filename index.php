@@ -1,4 +1,7 @@
 <?php
+session_start();
+
+
 require_once 'includes.php';
 require_once 'verifica_auth.php';
 require_once 'Connection.php';
@@ -8,7 +11,7 @@ require_once 'Usuario.php';
 require_once 'AlunoModel.php';
 require_once 'UsuarioModel.php';
 
-session_start();
+
 
 $aluno = new Aluno();
 $alunoModel = new AlunoModel($conexao, $aluno);

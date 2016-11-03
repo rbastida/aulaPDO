@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 require_once 'includes.php';
 require_once 'verifica_auth.php';
 require_once 'Connection.php';
@@ -41,7 +43,7 @@ require_once 'UsuarioModel.php';
         ?>
 
         <div class="container">
-            <form name="frmEnviar" action="pesquisa.php" method="POST">
+            <form name="frmEnviar" action="index.php" method="POST">
             <table class="table">
                 <thead>
                     <tr>
